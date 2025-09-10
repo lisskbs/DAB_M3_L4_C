@@ -11,7 +11,19 @@ const connection = {
   dialect: process.env.DIALECT,
   dialectmodel: process.env.DIALECTMODEL,
 };
-const sequelize = new Sequelize(connection);
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'mysql',
+  dialectOptions: {
+    ssl: {
+      require: true
+    }
+  }
+});
+
+const db = {};
+db.sequelize = sequelize;
+
 const db = {}
 db.sequelize = sequelize
 fs.readdirSync(__dirname)
