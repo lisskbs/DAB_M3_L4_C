@@ -21,9 +21,6 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   }
 });
 
-const db = {};
-db.sequelize = sequelize;
-
 const db = {}
 db.sequelize = sequelize
 fs.readdirSync(__dirname)
