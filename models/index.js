@@ -15,7 +15,9 @@ const sequelize = new Sequelize(
     port: process.env.PORT,
     dialect: process.env.DIALECT,
     dialectOptions: {
-      ssl: { require: true } // Aiven MySQL requires SSL
+      ssl: { 
+        require: true, 
+      } // Aiven MySQL requires SSL
     }
   }
 );
