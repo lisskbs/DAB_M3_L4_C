@@ -12,7 +12,14 @@ const connection = {
   dialectmodel: process.env.DIALECTMODEL,
 };
 
-const sequelize = new Sequelize(connection);
+const sequelize = new Sequelize(connection, {
+   dialect: "mysql",
+  dialectOptions: {
+    ssl: { require: true }
+  }
+
+});
+
 const db = {}
 db.sequelize = sequelize
 fs.readdirSync(__dirname)
