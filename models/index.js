@@ -22,6 +22,15 @@ const sequelize = new Sequelize(
   }
 );
 
+db.sequelize.sync()
+  .then(() => {
+    console.log("Database synced");
+  })
+  .catch(err => {
+    console.error("Error syncing database:", err);
+  });
+
+
 const db = {};
 db.sequelize = sequelize;
 
